@@ -1,5 +1,5 @@
 package lt.techin;
-//Created by E.V
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,10 +11,7 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 public class LoginPage extends BasePage {
-    @FindBy(xpath = "//span[@class='navbar-toggler-icon']")
-    private WebElement burger;
-    @FindBy(xpath = "//a[@href='/login']")
-    private WebElement loginBurger;
+
     @FindBy(xpath = "//input[@id='formGroupEmail']")
     private WebElement inputEmail;
     @FindBy(xpath = "//input[@id='formGroupPassword']")
@@ -24,12 +21,8 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[@class='container']/h3")
     private WebElement accountPageHeadline;
 
-    public void clickBurger() {
-        burger.click();
-    }
-
-    public void clickLoginBurger() {
-        loginBurger.click();
+    public LoginPage(WebDriver driver) {
+        super(driver);
     }
 
     public void setInputEmail(String email1) {
@@ -51,9 +44,5 @@ public class LoginPage extends BasePage {
     public void waiterForProfile(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.of(3, ChronoUnit.SECONDS));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"root\"]/div/h3")));
-    }
-
-    public LoginPage(WebDriver driver) {
-        super(driver);
     }
 }

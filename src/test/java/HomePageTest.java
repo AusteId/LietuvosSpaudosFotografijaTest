@@ -1,4 +1,3 @@
-//Created by E.V
 
 import lt.techin.HomePage;
 import org.junit.jupiter.api.Test;

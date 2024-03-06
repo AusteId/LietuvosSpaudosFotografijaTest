@@ -1,5 +1,4 @@
 package lt.techin;
-//Created by E.V
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;

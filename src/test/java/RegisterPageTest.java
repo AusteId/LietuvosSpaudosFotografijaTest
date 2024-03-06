@@ -1,22 +1,22 @@
-//Created by E.V
 
-import lt.techin.HomePage;
+import lt.techin.NavigationBar;
 import lt.techin.RegisterPage;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class RegisterPageTest extends BaseTest {
-    HomePage homePage;
+
     RegisterPage registerPage;
+    NavigationBar navigationBar;
 
     @Test
     void userCanRegister() {
-        homePage = new HomePage(driver);
         registerPage = new RegisterPage(driver);
+        navigationBar = new NavigationBar(driver);
 
-        homePage.clickOnBurger();
-        homePage.clickOnRegister();
+        navigationBar.clickBurger();
+        navigationBar.clickRegisterBurger();
 
         registerPage.setInputName("name");
         registerPage.setInputSurname("surname");
