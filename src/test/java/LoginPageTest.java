@@ -17,9 +17,9 @@ public class LoginPageTest extends BaseTest {
         homePage.clickOnBurger();
         homePage.clickOnLogin();
 
-        loginPage.inputEmail("userE@user.com");
-        loginPage.inputPassword("Qwerty12");
-        loginPage.clickOnLoginButton();
+        loginPage.setInputEmail("userE@user.com");
+        loginPage.setInputPassword("Qwerty12");
+        loginPage.clickButtonLogin();
         loginPage.waiterForProfile();
 
         String titleProfilePage = "Profilis";

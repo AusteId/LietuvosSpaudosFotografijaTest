@@ -11,41 +11,41 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 public class LoginPage extends BasePage {
-    @FindBy(xpath = "//*[@id=\"dropdown-basic\"]/span")
+    @FindBy(xpath = "//span[@class='navbar-toggler-icon']")
     private WebElement burger;
-    @FindBy(xpath = "//*[@id=\"root\"]/nav/div/div/div/a[2]")
-    private WebElement login;
-    @FindBy(xpath = "//*[@id=\"formGroupEmail\"]")
-    private WebElement email;
-    @FindBy(xpath = "//*[@id=\"formGroupPassword\"]")
-    private WebElement password;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/form/div[4]/div/div[1]/button")
+    @FindBy(xpath = "//a[@href='/login']")
+    private WebElement loginBurger;
+    @FindBy(xpath = "//input[@id='formGroupEmail']")
+    private WebElement inputEmail;
+    @FindBy(xpath = "//input[@id='formGroupPassword']")
+    private WebElement inputPassword;
+    @FindBy(xpath = "//button[@type='submit']")
     private WebElement loginButton;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/h3")
-    private WebElement profilePage;
+    @FindBy(xpath = "//div[@class='container']/h3")
+    private WebElement accountPageHeadline;
 
-    public void clickOnBurger() {
+    public void clickBurger() {
         burger.click();
     }
 
-    public void clickOnLogin() {
-        login.click();
+    public void clickLoginBurger() {
+        loginBurger.click();
     }
 
-    public void inputEmail(String email1) {
-        email.sendKeys(email1);
+    public void setInputEmail(String email1) {
+        inputEmail.sendKeys(email1);
     }
 
-    public void inputPassword(String password1) {
-        password.sendKeys(password1);
+    public void setInputPassword(String password1) {
+        inputPassword.sendKeys(password1);
     }
 
-    public void clickOnLoginButton() {
+    public void clickButtonLogin() {
         loginButton.click();
     }
 
     public String profilePageTitle() {
-       return profilePage.getText();
+       return accountPageHeadline.getText();
 
     }
     public void waiterForProfile(){

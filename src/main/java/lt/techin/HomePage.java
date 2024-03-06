@@ -6,14 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/h3")
+    @FindBy(xpath = "//div[contains(@class, 'image-header-text')]/h3")
     private WebElement title;
-    @FindBy(xpath = "//*[@id=\"dropdown-basic\"]/span")
+    @FindBy(xpath = "//span[@class='navbar-toggler-icon']")
     private WebElement burger;
-    @FindBy(xpath = "//*[@id=\"root\"]/nav/div/div/div/a[3]")
-    private WebElement register;
-    @FindBy(xpath = "//*[@id=\"root\"]/nav/div/div/div/a[2]")
-    private WebElement login;
+    @FindBy(xpath = "//a[@href='/registration']")
+    private WebElement registerBurger;
+    @FindBy(xpath = "//a[@href='/login']")
+    private WebElement loginBurger;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -28,11 +28,11 @@ public class HomePage extends BasePage {
     }
 
     public void clickOnRegister() {
-        register.click();
+        registerBurger.click();
     }
 
     public void clickOnLogin() {
-        login.click();
+        loginBurger.click();
     }
 
 }
