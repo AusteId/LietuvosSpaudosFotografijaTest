@@ -24,7 +24,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"root\"]/div/h3")
     private WebElement profilePage;
 
-
     public void clickOnBurger() {
         burger.click();
     }
