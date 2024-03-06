@@ -1,7 +1,6 @@
 package lt.techin;
 //Created by E.V
 
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,7 +34,6 @@ public class RegisterPage extends BasePage {
     private WebElement clickOnRegister;
     @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/div/h2")
     private WebElement loginPageTitle;
-
 
     public RegisterPage(WebDriver driver) {
         super(driver);

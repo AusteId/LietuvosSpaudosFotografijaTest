@@ -22,16 +22,12 @@ public class BaseTest {
     void setup() {
         driver = new ChromeDriver();
         driver.get("http://localhost:5173");
-
-
     }
 
     @AfterEach
     void tearDown() {
         driver.quit();
     }
-
-
 }
 
 
