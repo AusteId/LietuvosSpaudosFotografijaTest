@@ -1,37 +1,30 @@
-//Created by E.V
- import lt.techin.HomePage;
-import lt.techin.LoginPage;
-import org.junit.jupiter.api.Test;
+
+ import lt.techin.LoginPage;
+ import lt.techin.NavigationBar;
+ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class LoginPageTest extends BaseTest {
-    HomePage homePage;
-    LoginPage loginPage;
 
+    LoginPage loginPage;
+    NavigationBar navigationBar;
 
     @Test
     void userCanLogin() {
-        homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
+        navigationBar = new NavigationBar(driver);
 
-        homePage.clickOnBurger();
-        homePage.clickOnLogin();
+        navigationBar.clickBurger();
+        navigationBar.clickLoginBurger();
 
-        loginPage.inputEmail("userE@user.com");
-        loginPage.inputPassword("Qwerty12");
-        loginPage.clickOnLoginButton();
-
-
+        loginPage.setInputEmail("userE@user.com");
+        loginPage.setInputPassword("Qwerty12");
+        loginPage.clickButtonLogin();
         loginPage.waiterForProfile();
-
 
         String titleProfilePage = "Profilis";
         String actualTitleProfilePage = loginPage.profilePageTitle();
-
         assertThat(actualTitleProfilePage).isEqualTo(titleProfilePage);
-
     }
-
-
 }

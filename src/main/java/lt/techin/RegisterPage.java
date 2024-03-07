@@ -1,6 +1,4 @@
 package lt.techin;
-//Created by E.V
-
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
@@ -10,32 +8,30 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Random;
 
 public class RegisterPage extends BasePage {
-    @FindBy(xpath = "//*[@id=\"name\"]")
+    @FindBy(xpath = "//input[@id='name']")
     private WebElement inputName;
-    @FindBy(xpath = "//*[@id=\"surname\"]")
+    @FindBy(xpath = "//input[@id='surname']")
     private WebElement inputSurname;
-    @FindBy(xpath = "//*[@id=\"email\"]")
+    @FindBy(xpath = "//input[@id='email']")
     private WebElement inputEmail;
-    @FindBy(xpath = "//*[@id=\"password\"]")
+    @FindBy(xpath = "//input[@id='password']")
     private WebElement inputPassword;
-    @FindBy(xpath = "//*[@id=\"confirm_password\"]")
+    @FindBy(xpath = "//input[@id='confirm_password']")
     private WebElement inputConfirmPassword;
-    @FindBy(xpath = "//*[@id=\"birth_year\"]")
+    @FindBy(xpath = "//input[@id='birth_year']")
     private WebElement inputBirthYear;
-    @FindBy(xpath = "//*[@id=\"phone_number\"]")
+    @FindBy(xpath = "//input[@id='phone_number']")
     private WebElement inputPhoneNumber;
-    @FindBy(xpath = "//*[@id=\"user_agreement\"]")
-    private WebElement clickTermsOfService;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/form/button")
-    private WebElement clickOnRegister;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/div/h2")
-    private WebElement loginPageTitle;
-
+    @FindBy(xpath = "//input[@id='user_agreement']")
+    private WebElement checkboxUserAgreement;
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement buttonRegister;
+    @FindBy(xpath = "//div[@class='my-5 card']/h2")
+    private WebElement loginPageHeadline;
 
     public RegisterPage(WebDriver driver) {
         super(driver);
@@ -71,16 +67,16 @@ public class RegisterPage extends BasePage {
         inputPhoneNumber.sendKeys(phoneNumber);
     }
 
-    public void setClickTermsOfService() {
-        clickTermsOfService.click();
+    public void setCheckboxUserAgreement() {
+        checkboxUserAgreement.click();
     }
 
-    public void setClickOnRegister() {
-        clickOnRegister.click();
+    public void clickButtonRegister() {
+        buttonRegister.click();
     }
 
-    public String titleLoginPage() {
-        return loginPageTitle.getText();
+    public String loginPageHeadline() {
+        return loginPageHeadline.getText();
     }
 
     public void alertClick() {
@@ -89,6 +85,5 @@ public class RegisterPage extends BasePage {
         Alert alert = driver.switchTo().alert();
         String text = alert.getText();
         alert.dismiss();
-
     }
 }
