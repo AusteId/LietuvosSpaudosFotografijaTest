@@ -10,6 +10,7 @@ public class BaseTest {
     @BeforeEach
     void setup() {
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://localhost:5173");
     }
 

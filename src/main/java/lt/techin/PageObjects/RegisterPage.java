@@ -1,4 +1,4 @@
-package lt.techin;
+package lt.techin.PageObjects;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;

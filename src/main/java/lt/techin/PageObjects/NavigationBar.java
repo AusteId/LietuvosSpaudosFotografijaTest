@@ -1,4 +1,4 @@
-package lt.techin;
+package lt.techin.PageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +12,11 @@ public class NavigationBar extends BasePage {
     private WebElement registerBurger;
     @FindBy(xpath = "//a[@href='/login']")
     private WebElement loginBurger;
+    @FindBy(xpath = "//a[text()='Atsijungti']")
+    private WebElement logoutBurger;
+
+    @FindBy(xpath = "//a[@href='/admin-competitions-list']")
+    private WebElement manageCompetitions;
 
     public NavigationBar(WebDriver driver) {
         super(driver);
@@ -27,5 +32,17 @@ public class NavigationBar extends BasePage {
 
     public void clickLoginBurger() {
         loginBurger.click();
+    }
+
+    public void clickLogoutBurger() {
+        logoutBurger.click();
+    }
+
+    public void clickManageCompetitions() {
+        manageCompetitions.click();
+    }
+
+    public void clickburger() {
+        burger.click();
     }
 }

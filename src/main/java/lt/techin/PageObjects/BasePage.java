@@ -1,4 +1,4 @@
-package lt.techin;
+package lt.techin.PageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

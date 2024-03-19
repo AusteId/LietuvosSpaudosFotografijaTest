@@ -1,6 +1,6 @@
 
-import lt.techin.NavigationBar;
-import lt.techin.RegisterPage;
+import lt.techin.PageObjects.NavigationBar;
+import lt.techin.PageObjects.RegisterPage;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

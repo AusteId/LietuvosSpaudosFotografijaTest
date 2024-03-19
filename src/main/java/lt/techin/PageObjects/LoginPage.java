@@ -1,4 +1,4 @@
-package lt.techin;
+package lt.techin.PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -38,11 +38,17 @@ public class LoginPage extends BasePage {
     }
 
     public String profilePageTitle() {
-       return accountPageHeadline.getText();
+        return accountPageHeadline.getText();
 
     }
     public void waiterForProfile(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.of(3, ChronoUnit.SECONDS));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"root\"]/div/h3")));
+    }
+
+    public void login(String email, String password) {
+        setInputEmail(email);
+        setInputPassword(password);
+        clickButtonLogin();
     }
 }
