@@ -15,4 +15,8 @@ public class AccountPage extends BasePage {
     public String getAccountPageHeadline() {
         return accountPageHeadline.getText();
     }
+
+    public WebElement getAccountPageHeadlinewebElement() {
+        return accountPageHeadline;
+    }
 }

@@ -15,20 +15,21 @@ public class LoginPageTest extends BaseTest {
     LoginPage loginPage;
     AccountPage accountPage;
     NavigationBar navigationBar;
+    WaitUtils waitUtils;
 
     @ParameterizedTest
     @CsvFileSource(resources = "/users_DifferentTypes.csv")
-    void differentTypesOfUsersCanLoginFromHomePage(String email, String password) throws InterruptedException {
+    void differentTypesOfUsersCanLoginFromHomePage(String email, String password) {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         accountPage = new AccountPage(driver);
         navigationBar = new NavigationBar(driver);
+        waitUtils = new WaitUtils();
 
         homePage.clickButtonLoginHomePage();
         loginPage.login(email, password);
 
-        Thread.sleep(3000);
-
+        waitUtils.waitForElementToAppear(accountPage.getAccountPageHeadlinewebElement(), driver);
 
         String actualAccountPageHeadlineText = accountPage.getAccountPageHeadline();
         String expectedAccountPageHeadlineText = "Profilis";
@@ -40,16 +41,17 @@ public class LoginPageTest extends BaseTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/users_DifferentTypes.csv")
-    void differentTypesOfUsersCanLoginFromNavBar(String email, String password) throws InterruptedException {
+    void differentTypesOfUsersCanLoginFromNavBar(String email, String password) {
         navigationBar = new NavigationBar(driver);
         loginPage = new LoginPage(driver);
         accountPage = new AccountPage(driver);
+        waitUtils = new WaitUtils();
 
         navigationBar.clickBurger();
         navigationBar.clickLoginBurger();
         loginPage.login(email, password);
 
-        Thread.sleep(3000);
+        waitUtils.waitForElementToAppear(accountPage.getAccountPageHeadlinewebElement(), driver);
 
         String actualAccountPageHeadlineText = accountPage.getAccountPageHeadline();
         String expectedAccountPageHeadlineText = "Profilis";
