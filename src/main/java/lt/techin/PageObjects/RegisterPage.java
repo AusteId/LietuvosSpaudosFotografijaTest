@@ -1,6 +1,7 @@
 package lt.techin.PageObjects;
 
-import org.openqa.selenium.Alert;
+
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,11 +28,15 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//input[@id='phone_number']")
     private WebElement inputPhoneNumber;
     @FindBy(xpath = "//input[@id='user_agreement']")
-    private WebElement checkboxUserAgreement;
+    private WebElement checkBoxUserAgreement;
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement buttonRegister;
     @FindBy(xpath = "//div[@class='my-5 card']/h2")
     private WebElement loginPageHeadline;
+    @FindBy(xpath = "//button[text()=\"Tęsti\"]")
+    private WebElement acceptModalButton;
+    @FindBy(xpath = "//div[@class='modal-footer']")
+    private WebElement visibilityOfModalFooter;
 
     public RegisterPage(WebDriver driver) {
         super(driver);
@@ -68,7 +73,7 @@ public class RegisterPage extends BasePage {
     }
 
     public void setCheckboxUserAgreement() {
-        checkboxUserAgreement.click();
+        checkBoxUserAgreement.click();
     }
 
     public void clickButtonRegister() {
@@ -81,9 +86,7 @@ public class RegisterPage extends BasePage {
 
     public void alertClick() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS));
-        wait.until(ExpectedConditions.alertIsPresent());
-        Alert alert = driver.switchTo().alert();
-        String text = alert.getText();
-        alert.dismiss();
+        wait.until(ExpectedConditions.visibilityOf(visibilityOfModalFooter));
+        acceptModalButton.click();
     }
 }
