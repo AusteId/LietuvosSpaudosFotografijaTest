@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class BaseTest {
     protected static WebDriver driver;
 
+
+
     @BeforeEach
     void setup() {
         driver = new ChromeDriver();
