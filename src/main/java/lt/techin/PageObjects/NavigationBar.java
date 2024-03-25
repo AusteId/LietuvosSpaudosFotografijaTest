@@ -14,9 +14,10 @@ public class NavigationBar extends BasePage {
     private WebElement loginBurger;
     @FindBy(xpath = "//a[text()='Atsijungti']")
     private WebElement logoutBurger;
-
     @FindBy(xpath = "//a[@href='/admin-competitions-list']")
     private WebElement manageCompetitions;
+    @FindBy(xpath = "//div[contains(@class, 'dropdown-menu')]")
+    private WebElement burgerDropdownMenu;
 
     public NavigationBar(WebDriver driver) {
         super(driver);
@@ -44,5 +45,9 @@ public class NavigationBar extends BasePage {
 
     public void clickburger() {
         burger.click();
+    }
+
+    public WebElement getBurgerDropdownWebElement() {
+        return burgerDropdownMenu;
     }
 }
