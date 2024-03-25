@@ -10,7 +10,7 @@ public class BaseTest {
     protected static WebDriver driver;
 
     void initializeDriver(String browser) {
-        
+
         if (browser.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
         } else if (browser.equalsIgnoreCase("firefox")) {

@@ -19,7 +19,8 @@ public class LoginPageTest extends BaseTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/users_DifferentTypes.csv")
-    void differentTypesOfUsersCanLoginFromHomePage(String email, String password) {
+    void differentTypesOfUsersCanLoginFromHomePage(String email, String password, String browser) {
+        initializeDriver(browser);
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         accountPage = new AccountPage(driver);
@@ -41,7 +42,8 @@ public class LoginPageTest extends BaseTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/users_DifferentTypes.csv")
-    void differentTypesOfUsersCanLoginFromNavBar(String email, String password) {
+    void differentTypesOfUsersCanLoginFromNavBar(String email, String password, String browser) {
+        initializeDriver(browser);
         navigationBar = new NavigationBar(driver);
         loginPage = new LoginPage(driver);
         accountPage = new AccountPage(driver);
