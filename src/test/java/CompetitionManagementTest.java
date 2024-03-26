@@ -1,6 +1,7 @@
 import lt.techin.PageObjects.*;
 import lt.techin.utils.WaitUtils;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -13,8 +14,10 @@ public class CompetitionManagementTest extends BaseTest {
     CompetitionManagementPage competitionManagementPage;
     WaitUtils waitUtils;
 
-    @Test
-    void adminCanCreateCompetition() {
+    @ParameterizedTest
+    @ValueSource(strings = { "chrome", "edge", "firefox" })
+    void adminCanCreateCompetition(String browser) {
+        initializeDriver(browser);
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         navigationBar = new NavigationBar(driver);

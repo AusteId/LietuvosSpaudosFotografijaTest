@@ -2,6 +2,8 @@
 import lt.techin.PageObjects.NavigationBar;
 import lt.techin.PageObjects.RegisterPage;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -10,8 +12,10 @@ public class RegisterPageTest extends BaseTest {
     RegisterPage registerPage;
     NavigationBar navigationBar;
 
-    @Test
-    void userCanRegister() {
+    @ParameterizedTest
+    @ValueSource(strings = {"chrome", "edge", "firefox"})
+    void userCanRegister(String browser) {
+        initializeDriver(browser);
         registerPage = new RegisterPage(driver);
         navigationBar = new NavigationBar(driver);
 
