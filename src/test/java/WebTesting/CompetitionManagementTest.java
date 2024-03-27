@@ -1,3 +1,5 @@
+package WebTesting;
+
 import lt.techin.PageObjects.*;
 import lt.techin.utils.WaitUtils;
 import org.junit.jupiter.params.ParameterizedTest;

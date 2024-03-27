@@ -42,7 +42,7 @@ public class CompetitionCreationTest extends BaseTest {
 
         given().log().all().header("Content-Type", "application/json")
                 .header("Authorization", "Bearer " + token)
-                .body(Payload.createCompetition("Mano blogiausia " + DataGenerator.addSixLetters(), "My best", 5))
+                .body(Payload.createCompetition("Mano blogiausia " + DataGenerator.addSixLetters(), "My worst", 5))
                 .when().put("/api/v1/competition/" + uuid)
                 .then().log().all().assertThat().statusCode(200).time(lessThan(2000L));
 
