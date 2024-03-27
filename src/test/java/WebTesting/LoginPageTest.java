@@ -1,3 +1,4 @@
+package WebTesting;
 
 import lt.techin.PageObjects.AccountPage;
 import lt.techin.PageObjects.HomePage;
