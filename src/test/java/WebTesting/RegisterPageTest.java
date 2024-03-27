@@ -2,6 +2,7 @@ package WebTesting;
 
 import lt.techin.PageObjects.NavigationBar;
 import lt.techin.PageObjects.RegisterPage;
+import lt.techin.utils.DataGenerator;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -24,7 +25,7 @@ public class RegisterPageTest extends BaseTest {
 
         registerPage.setInputName("name");
         registerPage.setInputSurname("surname");
-        registerPage.setInputEmail();
+        registerPage.setInputEmail(DataGenerator.addSixLetters() + "@gmail.com");
         registerPage.setInputPassword("Password1@");
         registerPage.setInputConfirmPassword("Password1@");
         registerPage.setInputBirthYear("1999");

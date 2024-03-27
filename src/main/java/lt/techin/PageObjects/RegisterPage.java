@@ -1,7 +1,6 @@
 package lt.techin.PageObjects;
 
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,10 +49,8 @@ public class RegisterPage extends BasePage {
         inputSurname.sendKeys(surname);
     }
 
-    public void setInputEmail() {
-        Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(10000);
-        inputEmail.sendKeys("username" + randomInt + "@gmail.com");
+    public void setInputEmail(String email) {
+        inputEmail.sendKeys(email);
     }
 
     public void setInputPassword(String password) {

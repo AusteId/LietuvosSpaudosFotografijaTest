@@ -7,6 +7,7 @@ import lt.techin.PageObjects.NavigationBar;
 import lt.techin.utils.WaitUtils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -62,5 +63,25 @@ public class LoginPageTest extends BaseTest {
 
         navigationBar.clickBurger();
         navigationBar.clickLogoutBurger();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"chrome", "edge", "firefox"})
+    void userCanNotLoginWithWrongPassword(String browser) {
+        initializeDriver(browser);
+        homePage = new HomePage(driver);
+        loginPage = new LoginPage(driver);
+        accountPage = new AccountPage(driver);
+        navigationBar = new NavigationBar(driver);
+        waitUtils = new WaitUtils();
+
+        homePage.clickButtonLoginHomePage();
+        loginPage.login("user@mail.com", "password");
+
+        waitUtils.waitForElementToAppear(loginPage.getErrorMessageWrongCredentialsWebElement(), driver);
+
+        String actualErrorMessage = loginPage.getErrorMessageWrongCredentials();
+        String expectedErrorMessage = "Neteisingas el.paštas arba slaptažodis";
+        assertThat(actualErrorMessage).isEqualTo(expectedErrorMessage);
     }
 }
