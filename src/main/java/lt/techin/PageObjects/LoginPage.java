@@ -20,6 +20,8 @@ public class LoginPage extends BasePage {
     private WebElement loginButton;
     @FindBy(xpath = "//div[@class='container']/h3")
     private WebElement accountPageHeadline;
+    @FindBy(xpath = "//p")
+    private WebElement errorMessageWrongCredentials;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -50,5 +52,13 @@ public class LoginPage extends BasePage {
         setInputEmail(email);
         setInputPassword(password);
         clickButtonLogin();
+    }
+
+    public String getErrorMessageWrongCredentials() {
+        return errorMessageWrongCredentials.getText();
+    }
+
+    public WebElement getErrorMessageWrongCredentialsWebElement() {
+        return errorMessageWrongCredentials;
     }
 }

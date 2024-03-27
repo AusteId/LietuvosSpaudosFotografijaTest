@@ -1,6 +1,7 @@
 package WebTesting;
 
 import lt.techin.PageObjects.*;
+import lt.techin.utils.DataGenerator;
 import lt.techin.utils.WaitUtils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -26,7 +27,7 @@ public class CompetitionManagementTest extends BaseTest {
         createCompetitionPage = new CreateCompetitionPage(driver);
         competitionManagementPage = new CompetitionManagementPage(driver);
         waitUtils = new WaitUtils();
-        String competitionTitleLT = "Geriausia mano nuotrauka";
+        String competitionTitleLT = "Geriausia mano nuotrauka " + DataGenerator.addSixLetters();
 
         homePage.clickButtonLoginHomePage();
         loginPage.login("admin@mail.com", "qweQWE123!");
