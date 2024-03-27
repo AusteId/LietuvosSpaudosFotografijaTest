@@ -32,7 +32,19 @@ public class Payload {
                 }""", email);
     }
 
-
-
-
+    public static String createCompetition(String nameLT, String nameEN, int photoLimit) {
+        return String.format("""
+                {
+                  "status": "NONE",
+                  "visibility": "PRIVATE",
+                  "name_lt": "%s",
+                  "name_en": "%s",
+                  "description_lt": "Čia aprašau geriausią konkursą geriausioms nuotraukoms",
+                  "description_en": "I write something about the best competition for best photos",
+                  "photo_limit": %d,
+                  "start_date": "2024-03-08T17:18:35.426Z",
+                  "end_date": "2024-04-20T17:18:35.426Z"
+                }
+                """, nameLT, nameEN, photoLimit);
+    }
 }
